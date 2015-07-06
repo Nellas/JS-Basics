@@ -72,7 +72,7 @@ var func = function(paramFunc) {
     }
 };
 
-console.log(func(function(){return 1})());
+console.log(func(function(){return 'Only executed once'})());
 
 
 
@@ -87,13 +87,14 @@ console.log(func(function(){return 1})());
 
 
 var fnCounter = function (anonFunc, N) {
-    for (i = 0; i <= N; i++) {
+    for (var i = 0; i <= N; i++) {
         anonFunc();
+        };
     }
     return 'STOP';
 };
 
-
+console.log(fnCounter(function(){return 'this will run 3 times'}, 3));
 
 /*
   var counter = function(){
