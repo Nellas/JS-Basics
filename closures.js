@@ -72,7 +72,7 @@ var func = function(paramFunc) {
     }
 };
 
-console.log(func(function(){return 1})());
+console.log(func(function(){return 'Only executed once'})());
 
 
 
@@ -87,13 +87,13 @@ console.log(func(function(){return 1})());
 
 
 var fnCounter = function (anonFunc, N) {
-    for (i = 0; i <= N; i++) {
+    for (var i = 0; i < N; i++) {
         anonFunc();
-    }
+        }
     return 'STOP';
 };
 
-
+fnCounter(function(){console.log('this will run 3 times')}, 3);
 
 /*
   var counter = function(){
@@ -104,9 +104,9 @@ var fnCounter = function (anonFunc, N) {
     }
   };
 
-Above you have a function named counter. Examine the function (without running the code) then below write what you expect to happen when the funciton is invoked. *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
+Above you have a function named counter. Examine the function (without running the code) then below write what you expect to happen when the function is invoked. *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
 
-    //Answer Here  --  Nothing will happen.  There is a scoping problem with the variable i.  i is not accessible to the console.log call since it was declared in a function above.
+    //Answer Here  -- I think you have to pass i to the setTimeout function so it looks at the value of i BEFORE waiting, not after.  Waiting after i will probably always be 6.
 
 
 
