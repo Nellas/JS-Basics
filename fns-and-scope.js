@@ -101,7 +101,7 @@ console.log(newMyName());
 
 var outerFn = function() {
     return function() {
-        return 'luke';
+        return 'Luke';
     }
 };
 
