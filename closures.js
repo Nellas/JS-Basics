@@ -3,7 +3,7 @@
 var outer = function(){
   var name = 'Tyler';
   return function(){
-    return 'The original name was ' + name;
+    return '\nThe original name was ' + name;
   }
 };
 //Above you're given a function that returns another function which has a closure over the name variable.
@@ -22,7 +22,7 @@ console.log(inner());
 var callFriend = function(){
   var friend = 'Jake';
   function callF(number){
-    return 'Calling ' + friend + ' at ' + number;
+    return '\nCalling ' + friend + ' at ' + number;
   }
   return callF;
 };
@@ -51,7 +51,7 @@ var count = function() {
 }();
 
 
-
+console.log('\n');
 console.log('Counter is at: ', count()); // 1
 console.log('Counter is at: ', count()); // 2
 console.log('Counter is at: ', count()); // 3
@@ -72,7 +72,7 @@ var func = function(paramFunc) {
         return paramFunc();
     }
 };
-
+console.log('\n');
 console.log(func(function(){return 'Only executed once'})());
 
 
@@ -91,12 +91,16 @@ var fnCounter = function (anonFunc, N) {
     for (var i = 0; i < N; i++) {
         anonFunc();
         }
-    return 'STOP';
+    console.log('STOP');
 };
 
-fnCounter(function(){console.log('this will run 3 times')}, 3);
+console.log('\n');
+fnCounter(function(){console.log('this will run 3 times and then say STOP')}, 3);
 
-/*
+
+// Next Problem
+
+
   var counter = function(){
     for (var i=1; i<=5; i++) {
       setTimeout( function timer(){
@@ -104,6 +108,8 @@ fnCounter(function(){console.log('this will run 3 times')}, 3);
       }, i*1000 );
     }
   };
+
+/*
 
 Above you have a function named counter. Examine the function (without running the code) then below write what you expect to happen when the function is invoked. *Hint: setTimeout calls a function or evaluates an expression after a specified number of milliseconds.
 
@@ -121,15 +127,17 @@ Above you have a function named counter. Examine the function (without running t
   Fix the counter function so that it works the way you expect it to work. (logging 1 then 2 then 3, etc)
 */
 
-var counter = function() {
+var counter2 = function() {
     for (var i = 1; i <= 5; i++) {
         setTimeout(function timer(i){
-            console.log(i);
+            console.log('Delayed count: ' + i);
+
         }, i*1000, i);
     }
 };
 
-counter();
+console.log('\n');
+counter2();
 
 
 
@@ -138,12 +146,12 @@ counter();
 
 var funcArray = [function() {return 0;}, function() {return 1;}, function() {return 2;}, function() {return 3}, function() {return 4;}, function() {return 5;}];
 
-console.log(funcArray[0]()); //0
-console.log(funcArray[1]()); //1
-console.log(funcArray[2]()); //2
-console.log(funcArray[3]()); //3
-console.log(funcArray[4]()); //4
-console.log(funcArray[5]()); //5
+console.log('Array of functions @ index: ', funcArray[0]()); //0
+console.log('Array of functions @ index: ', funcArray[1]()); //1
+console.log('Array of functions @ index: ', funcArray[2]()); //2
+console.log('Array of functions @ index: ', funcArray[3]()); //3
+console.log('Array of functions @ index: ', funcArray[4]()); //4
+console.log('Array of functions @ index: ', funcArray[5](), '\n'); //5
 
 
 
