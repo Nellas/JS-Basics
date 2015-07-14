@@ -43,18 +43,19 @@ console.log(callFriend()('435-215-9248'));
 
 */
 
-//var makeCounter = function() {
+var count = function() {
+    var countUp = 0;
+    return function makeCounter() {
+        return countUp += 1;
+    }
+}();
 
 
-//    }
-//}
 
-
-
-//  count() // 1
-//  count() // 2
-//  count() // 3
-//  count() // 4
+console.log('Counter is at: ', count()); // 1
+console.log('Counter is at: ', count()); // 2
+console.log('Counter is at: ', count()); // 3
+console.log('Counter is at: ', count()); // 4
 
 
 //Next Problem
